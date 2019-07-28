@@ -23,16 +23,26 @@ class HisController extends Controller
     public function actionHistory(){
         if(!\Yii::$app->user->isGuest) {
             $user_id = \Yii::$app->user->id;
-            if(\Yii::$app->request->post('submit')!=null){
-                $routes = RoutesForm::findOne(\Yii::$app->request->post('submit'));
-                $routes->ticket = $routes->ticket+1;
-                $routes->save();
-
-                $users_routes = UsersRoutesForm::find()->where(['user_id'=>$user_id,'route_id'=>\Yii::$app->request->post('submit')])->one();
-                $users_routes->delete();
-            }
             $query = UsersRoutesForm::find()->where(['=','user_id',$user_id]);
             return $this->render('history', $this->Pagination($query));
+        }else{
+            return $this->render('errorAccess');
+        }
+    }
+
+    public function actionDelete(){
+        if(!\Yii::$app->user->isGuest){
+            echo 'hi';
+            die();
+            $user_id = \Yii::$app->user->id;
+            $routes = RoutesForm::findOne($route_id);
+            $routes->ticket = $routes->ticket+1;
+            $routes->save();
+            $users_routes = UsersRoutesForm::find()->where(['user_id'=>$user_id,'route_id'=>$route_id])->one();
+            $users_routes->delete();
+
+            return $this->redirect('his/history');
+
         }else{
             return $this->render('errorAccess');
         }

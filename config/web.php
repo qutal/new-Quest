@@ -52,6 +52,7 @@ $config = [
                 'reg'=>'registration/reg',
                 'order'=>'app/order',
                 'history<route_id\d+><page\d+><per-page\d+>'=>'his/history',
+                'delete<route_id\d+>'=>'his/delete'
             ],
         ],
 

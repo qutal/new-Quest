@@ -15,16 +15,14 @@ use yii\widgets\ActiveForm; ?>
                 'Время прибытия:'.$route['arrival_time'].'<br>'.
                 'Билетов осталось:'.$route['ticket'].'<br>'
                 ?></p>
-            <?php $form= ActiveForm::begin();?>
-            <?= Html::submitButton('Удалить',['name'=>'submit','value'=>$post['route_id'],'class'=>'btn btn-danger']) ?>
-            <?php ActiveForm::end();?>
+            <a href="<?=\yii\helpers\Url::to('')?>" class="btn btn-danger">Удалить</a>
         </div>
     </div>
 <?php endforeach; ?>
 <?php endif;?>
 <?php if(empty($posts)):?>
     <div class="alert alert-info">
-        <h1>Похоже, что заказов нет.<a href="<?=\yii\helpers\Url::to(['app/order'])?>">Заказать?</a></h1>
+        <h1>Похоже, что заказов нет.<a href="<?=\yii\helpers\Url::to('/app/order')?>">Заказать?</a></h1>
     </div>
 
 
