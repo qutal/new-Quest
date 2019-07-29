@@ -19,9 +19,10 @@ use yii\helpers\Html;
                     </div>
                 <?php endif;?>
                 <?php if($post['ticket']>0):?>
-                    <?php $form= ActiveForm::begin();?>
-                        <?= Html::submitButton('Заказать',['name'=>'submit','value'=>$post['route_id'],'class'=>'btn btn-success']) ?>
-                    <?php ActiveForm::end();?>
+                <a href="<?= \yii\helpers\Url::to(['/app/work','route_id'=>$post['route_id']]) ?>" class="btn btn-success">Заказать</a>
+<!--                    --><?php //$form= ActiveForm::begin();?>
+<!--                        --><?//= Html::submitButton('Заказать',['name'=>'submit','value'=>$post['route_id'],'class'=>'btn btn-success']) ?>
+<!--                    --><?php //ActiveForm::end();?>
                 <?php endif;?>
 
         </div>

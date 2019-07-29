@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm; ?>
                 'Время прибытия:'.$route['arrival_time'].'<br>'.
                 'Билетов осталось:'.$route['ticket'].'<br>'
                 ?></p>
-            <a href="<?=\yii\helpers\Url::to('')?>" class="btn btn-danger">Удалить</a>
+            <a href="<?=\yii\helpers\Url::to(['/his/delete','route_id'=>$route_id])?>" class="btn btn-danger">Удалить</a>
         </div>
     </div>
 <?php endforeach; ?>

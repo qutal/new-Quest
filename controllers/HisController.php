@@ -30,10 +30,8 @@ class HisController extends Controller
         }
     }
 
-    public function actionDelete(){
+    public function actionDelete($route_id){
         if(!\Yii::$app->user->isGuest){
-            echo 'hi';
-            die();
             $user_id = \Yii::$app->user->id;
             $routes = RoutesForm::findOne($route_id);
             $routes->ticket = $routes->ticket+1;
